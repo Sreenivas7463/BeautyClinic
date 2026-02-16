@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Theme init script - prevents flickering, must be in head -->
+    <script src="js/theme-init.js"></script>
+    <title>Glamour Beauty Parlour - Ladies Beauty Services</title>
+    <meta name="description"
+        content="Premium beauty parlour for ladies offering hair, skin, makeup, and bridal services. Book your appointment today!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        theme: {
+                            50: 'var(--color-theme-50)',
+                            100: 'var(--color-theme-100)',
+                            200: 'var(--color-theme-200)',
+                            300: 'var(--color-theme-300)',
+                            400: 'var(--color-theme-400)',
+                            500: 'var(--color-theme-500)',
+                            600: 'var(--color-theme-600)',
+                            700: 'var(--color-theme-700)',
+                            800: 'var(--color-theme-800)',
+                            900: 'var(--color-theme-900)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            /* Rose Pink Theme (Default) */
+            --color-theme-50: #fff1f2;
+            --color-theme-100: #ffe4e6;
+            --color-theme-200: #fecdd3;
+            --color-theme-300: #fda4af;
+            --color-theme-400: #fb7185;
+            --color-theme-500: #f43f5e;
+            --color-theme-600: #e11d48;
+            --color-theme-700: #be123c;
+            --color-theme-800: #9f1239;
+            --color-theme-900: #881337;
+        }
+
+        [data-theme="purple"] {
+            --color-theme-50: #faf5ff;
+            --color-theme-100: #f3e8ff;
+            --color-theme-200: #e9d5ff;
+            --color-theme-300: #d8b4fe;
+            --color-theme-400: #c084fc;
+            --color-theme-500: #a855f7;
+            --color-theme-600: #9333ea;
+            --color-theme-700: #7e22ce;
+            --color-theme-800: #6b21a8;
+            --color-theme-900: #581c87;
+        }
+
+        [data-theme="coral"] {
+            --color-theme-50: #fff7ed;
+            --color-theme-100: #ffedd5;
+            --color-theme-200: #fed7aa;
+            --color-theme-300: #fdba74;
+            --color-theme-400: #fb923c;
+            --color-theme-500: #f97316;
+            --color-theme-600: #ea580c;
+            --color-theme-700: #c2410c;
+            --color-theme-800: #9a3412;
+            --color-theme-900: #7c2d12;
+        }
+
+        [data-theme="teal"] {
+            --color-theme-50: #f0fdfa;
+            --color-theme-100: #ccfbf1;
+            --color-theme-200: #99f6e4;
+            --color-theme-300: #5eead4;
+            --color-theme-400: #2dd4bf;
+            --color-theme-500: #14b8a6;
+            --color-theme-600: #0d9488;
+            --color-theme-700: #0f766e;
+            --color-theme-800: #115e59;
+            --color-theme-900: #134e4a;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Smooth transitions for theme changes */
+        * {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .dark ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-theme-400);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-theme-500);
+        }
+
+        /* Hero gradient animation */
+        .hero-gradient {
+            background: linear-gradient(-45deg, var(--color-theme-200), var(--color-theme-300), var(--color-theme-400), var(--color-theme-300));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating animation */
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Pulse animation for CTA */
+        .pulse-soft {
+            animation: pulse-soft 2s infinite;
+        }
+
+        @keyframes pulse-soft {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(var(--color-theme-500), 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 20px rgba(var(--color-theme-500), 0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full bg-theme-500 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                    </div>
+                    <span
+                        class="font-display text-xl md:text-2xl font-bold text-theme-600 dark:text-theme-400">Glamour</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-theme-600 dark:text-theme-400 font-medium">Home</a>
+                    <a href="services.html"
+                        class="text-gray-600 dark:text-gray-300 hover:text-theme-500 dark:hover:text-theme-400 transition">Services</a>
+                    <a href="gallery.html"
+                        class="text-gray-600 dark:text-gray-300 hover:text-theme-500 dark:hover:text-theme-400 transition">Gallery</a>
+                    <a href="booking.html"
+                        class="text-gray-600 dark:text-gray-300 hover:text-theme-500 dark:hover:text-theme-400 transition">Book
+                        Now</a>
+                    <a href="contact.html"
+                        class="text-gray-600 dark:text-gray-300 hover:text-theme-500 dark:hover:text-theme-400 transition">Contact</a>
+                </div>
+
+                <!-- Right Side Controls -->
+                <div class="flex items-center space-x-3">
+                    <!-- Theme Selector -->
+                    <div class="relative">
+                        <button id="themeBtn"
+                            class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                            title="Change Theme">
+                            <svg class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+                            </svg>
+                        </button>
+                        <div id="themeMenu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-xl shadow-lg py-2 border border-gray-100 dark:border-gray-700">
+                            <button data-theme="rose"
+                                class="theme-option w-full px-4 py-2 text-left hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center space-x-2">
+                                <span class="w-4 h-4 rounded-full bg-pink-500"></span>
+                                <span>Rose Pink</span>
+                            </button>
+                            <button data-theme="purple"
+                                class="theme-option w-full px-4 py-2 text-left hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center space-x-2">
+                                <span class="w-4 h-4 rounded-full bg-purple-500"></span>
+                                <span>Lavender</span>
+                            </button>
+                            <button data-theme="coral"
+                                class="theme-option w-full px-4 py-2 text-left hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center space-x-2">
+                                <span class="w-4 h-4 rounded-full bg-orange-500"></span>
+                                <span>Coral Peach</span>
+                            </button>
+                            <button data-theme="teal"
+                                class="theme-option w-full px-4 py-2 text-left hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center space-x-2">
+                                <span class="w-4 h-4 rounded-full bg-teal-500"></span>
+                                <span>Teal Mint</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeBtn"
+                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        title="Toggle Dark Mode">
+                        <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 hidden dark:block" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <svg class="w-5 h-5 text-gray-600 dark:hidden" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+
+                    <!-- Book Now Button -->
+                    <a href="booking.html"
+                        class="hidden sm:inline-flex bg-theme-500 hover:bg-theme-600 text-white px-5 py-2 rounded-full font-medium transition transform hover:scale-105">
+                        Book Now
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn"
+                        class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html"
+                    class="block px-4 py-2 rounded-lg bg-theme-50 dark:bg-theme-900/20 text-theme-600 dark:text-theme-400 font-medium">Home</a>
+                <a href="services.html"
+                    class="block px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
+                <a href="gallery.html"
+                    class="block px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Gallery</a>
+                <a href="booking.html" class="block px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Book
+                    Now</a>
+                <a href="contact.html"
+                    class="block px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+                <a href="booking.html"
+                    class="block px-4 py-2 rounded-lg bg-theme-500 text-white text-center font-medium">Book
+                    Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 hero-gradient opacity-30 dark:opacity-20"></div>
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-white via-transparent to-white dark:from-gray-900 dark:via-gray-900 dark:to-gray-900">
+        </div>
+
+        <!-- Decorative Elements -->
+        <div
+            class="absolute top-32 left-10 w-20 h-20 bg-theme-200 dark:bg-theme-800 rounded-full blur-xl opacity-60 float">
+        </div>
+        <div class="absolute bottom-32 right-10 w-32 h-32 bg-theme-300 dark:bg-theme-700 rounded-full blur-xl opacity-60 float"
+            style="animation-delay: -3s;"></div>
+        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-theme-100 dark:bg-theme-900 rounded-full blur-lg opacity-40 float"
+            style="animation-delay: -1.5s;"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div class="text-center lg:text-left">
+                    <span
+                        class="inline-block px-4 py-1 bg-theme-100 dark:bg-theme-900/50 text-theme-600 dark:text-theme-400 rounded-full text-sm font-medium mb-6">
+                        ✨ Ladies Only Beauty Parlour
+                    </span>
+                    <h1
+                        class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
+                        Discover Your
+                        <span class="text-theme-500">True Beauty</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+                        Experience premium beauty services in a relaxing, women-only environment. Our expert stylists
+                        are dedicated to making you look and feel your absolute best.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="booking.html"
+                            class="inline-flex items-center justify-center bg-theme-500 hover:bg-theme-600 text-white px-8 py-3 rounded-full font-medium transition transform hover:scale-105 shadow-lg shadow-theme-500/30">
+                            <span>Book Appointment</span>
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                        <a href="services.html"
+                            class="inline-flex items-center justify-center bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-800 dark:text-white px-8 py-3 rounded-full font-medium transition border border-gray-200 dark:border-gray-700">
+                            View Services
+                        </a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                        <div class="text-center lg:text-left">
+                            <div class="text-3xl font-bold text-theme-500">15+</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Years Experience</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-3xl font-bold text-theme-500">10K+</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Happy Clients</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-3xl font-bold text-theme-500">50+</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Services</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="relative">
+                    <div class="relative z-10">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=700&fit=crop"
+                            alt="Beauty Salon" class="rounded-3xl shadow-2xl w-full max-w-lg mx-auto">
+                    </div>
+                    <!-- Decorative Frame -->
+                    <div
+                        class="absolute -top-4 -right-4 w-full h-full border-4 border-theme-300 dark:border-theme-700 rounded-3xl">
+                    </div>
+                    <!-- Floating Card -->
+                    <div class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 z-20">
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-12 h-12 bg-theme-100 dark:bg-theme-900 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-theme-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-900 dark:text-white">4.9 Rating</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">500+ Reviews</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="inline-block px-4 py-1 bg-theme-100 dark:bg-theme-900/50 text-theme-600 dark:text-theme-400 rounded-full text-sm font-medium mb-4">
+                    Our Services
+                </span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Premium Beauty Services
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    From hair styling to bridal makeup, we offer a complete range of beauty services tailored for the
+                    modern woman.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service Card 1 -->
+                <div
+                    class="group bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 hover:bg-theme-50 dark:hover:bg-theme-900/20 transition cursor-pointer">
+                    <div
+                        class="w-14 h-14 bg-theme-100 dark:bg-theme-900/50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-theme-200 dark:group-hover:bg-theme-800 transition">
+                        <svg class="w-7 h-7 text-theme-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">Hair Styling</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Cuts, coloring, treatments & styling for
+                        all hair types.</p>
+                    <a href="services.html"
+                        class="text-theme-500 hover:text-theme-600 text-sm font-medium inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div
+                    class="group bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 hover:bg-theme-50 dark:hover:bg-theme-900/20 transition cursor-pointer">
+                    <div
+                        class="w-14 h-14 bg-theme-100 dark:bg-theme-900/50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-theme-200 dark:group-hover:bg-theme-800 transition">
+                        <svg class="w-7 h-7 text-theme-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">Skin Care</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Facials, cleanups, and advanced skin
+                        treatments.</p>
+                    <a href="services.html"
+                        class="text-theme-500 hover:text-theme-600 text-sm font-medium inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div
+                    class="group bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 hover:bg-theme-50 dark:hover:bg-theme-900/20 transition cursor-pointer">
+                    <div
+                        class="w-14 h-14 bg-theme-100 dark:bg-theme-900/50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-theme-200 dark:group-hover:bg-theme-800 transition">
+                        <svg class="w-7 h-7 text-theme-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">Bridal Makeup</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Complete bridal packages for your special
+                        day.</p>
+                    <a href="services.html"
+                        class="text-theme-500 hover:text-theme-600 text-sm font-medium inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div
+                    class="group bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 hover:bg-theme-50 dark:hover:bg-theme-900/20 transition cursor-pointer">
+                    <div
+                        class="w-14 h-14 bg-theme-100 dark:bg-theme-900/50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-theme-200 dark:group-hover:bg-theme-800 transition">
+                        <svg class="w-7 h-7 text-theme-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">Spa & Wellness</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Relaxing spa therapies and body treatments.
+                    </p>
+                    <a href="services.html"
+                        class="text-theme-500 hover:text-theme-600 text-sm font-medium inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="services.html"
+                    class="inline-flex items-center text-theme-500 hover:text-theme-600 font-medium">
+                    View All Services
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=300&h=400&fit=crop"
+                        alt="Salon Interior" class="rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1e1021919?w=300&h=300&fit=crop"
+                        alt="Hair Treatment" class="rounded-2xl shadow-lg mt-8">
+                    <img src="https://images.unsplash.com/photo-1487412947147-578bf12c6c63?w=300&h=300&fit=crop"
+                        alt="Makeup" class="rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=300&h=400&fit=crop"
+                        alt="Spa" class="rounded-2xl shadow-lg mt-8">
+                </div>
+
+                <!-- Content -->
+                <div>
+                    <span
+                        class="inline-block px-4 py-1 bg-theme-100 dark:bg-theme-900/50 text-theme-600 dark:text-theme-400 rounded-full text-sm font-medium mb-4">
+                        Why Choose Us
+                    </span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        A Sanctuary for Your Beauty Needs
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8">
+                        We've created a warm, welcoming space exclusively for women where you can relax, rejuvenate, and
+                        enhance your natural beauty. Our team of certified professionals uses premium products and
+                        latest techniques.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-theme-100 dark:bg-theme-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-theme-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Certified Professionals
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">All our stylists are certified and
+                                    trained in the latest techniques.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-theme-100 dark:bg-theme-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-theme-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Premium Products</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">We use only branded, high-quality
+                                    products for all treatments.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-theme-100 dark:bg-theme-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-theme-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Flexible Timings</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Open 7 days a week with early
+                                    morning and late evening slots.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-theme-100 dark:bg-theme-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-theme-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Ladies Only Space</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">A comfortable, private environment
+                                    exclusively for women.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="inline-block px-4 py-1 bg-theme-100 dark:bg-theme-900/50 text-theme-600 dark:text-theme-400 rounded-full text-sm font-medium mb-4">
+                    Testimonials
+                </span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    What Our Clients Say
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Don't just take our word for it - hear from our happy clients!
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 relative">
+                    <div class="absolute -top-4 left-6">
+                        <svg class="w-8 h-8 text-theme-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 pt-4">
+                        "Absolutely love this place! The staff is so friendly and professional. Got my bridal makeup
+                        done here and received so many compliments. Highly recommend!"
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop"
+                            alt="Client" class="w-12 h-12 rounded-full">
+                        <div>
+                            <div class="font-semibold text-gray-900 dark:text-white">Priya Sharma</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Bridal Client</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 relative">
+                    <div class="absolute -top-4 left-6">
+                        <svg class="w-8 h-8 text-theme-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 pt-4">
+                        "The spa treatments here are heavenly! It's my go-to place for monthly facials. The ambiance is
+                        so relaxing and the results are always amazing."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop"
+                            alt="Client" class="w-12 h-12 rounded-full">
+                        <div>
+                            <div class="font-semibold text-gray-900 dark:text-white">Ananya Patel</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Regular Client</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 relative">
+                    <div class="absolute -top-4 left-6">
+                        <svg class="w-8 h-8 text-theme-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 pt-4">
+                        "Best hair salon in town! The stylists really understand what you want and give great
+                        suggestions. My hair has never looked better!"
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50&h=50&fit=crop"
+                            alt="Client" class="w-12 h-12 rounded-full">
+                        <div>
+                            <div class="font-semibold text-gray-900 dark:text-white">Meera Krishnan</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Hair Client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-theme-500 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="10" cy="10" r="2" fill="white" />
+                    </pattern>
+                </defs>
+                <rect x="0" y="0" width="100" height="100" fill="url(#pattern)" />
+            </svg>
+        </div>
+        <div class="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-6">
+                Ready to Transform Your Look?
+            </h2>
+            <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+                Book your appointment today and let our expert stylists bring out your inner beauty. First-time clients
+                get 20% off!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="booking.html"
+                    class="inline-flex items-center justify-center bg-white text-theme-600 hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition transform hover:scale-105">
+                    Book Appointment
+                </a>
+                <a href="tel:+919876543210"
+                    class="inline-flex items-center justify-center bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-full font-medium transition">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    Call Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-theme-500 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                            </svg>
+                        </div>
+                        <span class="font-display text-xl font-bold text-white">Glamour</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Your trusted beauty destination for ladies. We bring out the best in you with our premium
+                        services.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#"
+                            class="w-9 h-9 bg-gray-800 hover:bg-theme-500 rounded-full flex items-center justify-center transition">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.25 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-9 h-9 bg-gray-800 hover:bg-theme-500 rounded-full flex items-center justify-center transition">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-9 h-9 bg-gray-800 hover:bg-theme-500 rounded-full flex items-center justify-center transition">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-theme-400 transition">Home</a></li>
+                        <li><a href="services.html" class="hover:text-theme-400 transition">Services</a></li>
+                        <li><a href="gallery.html" class="hover:text-theme-400 transition">Gallery</a></li>
+                        <li><a href="booking.html" class="hover:text-theme-400 transition">Book Now</a></li>
+                        <li><a href="contact.html" class="hover:text-theme-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="services.html" class="hover:text-theme-400 transition">Hair Styling</a></li>
+                        <li><a href="services.html" class="hover:text-theme-400 transition">Skin Care</a></li>
+                        <li><a href="services.html" class="hover:text-theme-400 transition">Bridal Makeup</a></li>
+                        <li><a href="services.html" class="hover:text-theme-400 transition">Spa & Wellness</a></li>
+                        <li><a href="services.html" class="hover:text-theme-400 transition">Nail Art</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-theme-400 mt-0.5" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span>123 Beauty Street, Fashion District, City - 400001</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-theme-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-theme-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <span>hello@glamourbeauty.com</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-theme-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Mon - Sun: 9AM - 8PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-500">© 2026 Glamour Beauty Parlour. All rights reserved.</p>
+                <p class="text-sm text-gray-500 mt-2 md:mt-0">Made with ❤️ for beautiful women</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
